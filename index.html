@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AlcarazOS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body style="background-color: #f0f0f0; font-family: Arial, sans-serif; background-image: url(background.webp); 
+    background-size: cover;">
+        <script>
+           function updateTime() {
+                var currentTime = new Date().toLocaleString();
+                var timeText = document.querySelector("#timeElement");
+                timeText.innerHTML = currentTime;
+            }
+            setInterval(updateTime, 1000);
+        </script>
+        <div style="border: solid; width: fit-content; border-radius: 16px; padding: 16px; position: absolute; top: 50%; 
+        left: 50%; transform: translate(-50%, -50%); background-color: lightgray; text-align: center;">
+            <h1 style="margin: 4px;">Welcome to AlcarazOS</h1>
+            <p>
+                Hi guys. My name is Bhavya Vyas and I'm 13 years old as of 10/27/26. 
+                <br> I'm in 7th grade, and this is my a OS based on Carlos Alcaraz. 
+                <br> Look below to see a picture of Alcaraz!
+            </p>
+            <img src="alcarazintro-removebg-preview.png" alt="Carlos Alcaraz" style="width: 64px; height: 128px; object-fit: cover;">
+        </div>
+        <div  style=" display: flex; backdrop-filter: blur(10px); background-color: rgba(0, 0, 0, 0.25); color: #fff; justify-content: space-between; text-align: center">
+            <p style="margin: 16px;;">Tennis</p>
+            <p style="margin-left: 16px;">AlcarazOS</p>
+            <p id="timeElement" style="margin-right: 16px;">4:41</p>
+        </div>
+    </body>
+</html>
