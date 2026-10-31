@@ -1,35 +1,164 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head>
-        <title>AlcarazOS</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body style="background-color: #f0f0f0; font-family: Arial, sans-serif; background-image: url(background.webp); 
-    background-size: cover;">
-        <script>
-           function updateTime() {
-                var currentTime = new Date().toLocaleString();
-                var timeText = document.querySelector("#timeElement");
-                timeText.innerHTML = currentTime;
-            }
-            setInterval(updateTime, 1000);
-        </script>
-        <div style="border: solid; width: fit-content; border-radius: 16px; padding: 16px; position: absolute; top: 50%; 
-        left: 50%; transform: translate(-50%, -50%); background-color: lightgray; text-align: center;">
-            <h1 style="margin: 4px;">Welcome to AlcarazOS</h1>
-            <p>
-                Hi guys. My name is Bhavya Vyas and I'm 13 years old as of 10/27/26. 
-                <br> I'm in 7th grade, and this is my a OS based on Carlos Alcaraz. 
-                <br> Look below to see a picture of Alcaraz!
-            </p>
-            <img src="alcarazintro-removebg-preview.png" alt="Carlos Alcaraz" style="width: 64px; height: 128px; object-fit: cover;">
-        </div>
-        <div  style=" display: flex; backdrop-filter: blur(10px); background-color: rgba(0, 0, 0, 0.25); color: #fff; justify-content: space-between; text-align: center">
-            <p style="margin: 16px;;">Tennis</p>
-            <p style="margin-left: 16px;">AlcarazOS</p>
-            <p id="timeElement" style="margin-right: 16px;">4:41</p>
-        </div>
-    </body>
+  <head>
+    <title>AlcarazOS</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body
+    style="
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+      background-image: url(background.webp);
+      background-size: cover;
+    "
+  >
+    <script>
+      function updateTime() {
+        var currentTime = new Date().toLocaleString();
+        var timeText = document.querySelector("#timeElement");
+        timeText.innerHTML = currentTime;
+      }
+      setInterval(updateTime, 1000);
+    </script>
+    <!-- Welcome Screen -->
+    <div
+      class="window"
+      id="welcome"
+    >
+    	<button class="closebutton" id="welcomeclose"></button>
+      <p
+        class="windowheader"
+        id="welcomeheader"
+      >
+        Welcome!
+      </p>
+      <h1 style="margin: 4px">Welcome to AlcarazOS</h1>
+      <p>
+        Hi guys. My name is Bhavya Vyas and I'm
+        <span id="welcomeage"></span> years old as of <span id="welcomeasof"></span>.
+        <br />
+        I'm in <span id="welcomegrade"></span> grade, and this is my a OS based on Carlos Alcaraz. <br />
+        Look below to see a picture of Alcaraz!
+      </p>
+      <img
+        src="alcarazintro-removebg-preview.png"
+        alt="Carlos Alcaraz"
+        style="width: 64px; height: 128px; object-fit: cover"
+      />
+    </div>
+
+    <!--Notes App-->
+    <div
+      class="window"
+      id="notes"
+      style="display: none;"
+    >
+    	<button class="closebutton" id="notesclose"></button>
+      <p
+        class="windowheader"
+        id="notesheader"
+      >
+        Notes
+      </p>
+      <h1 style="margin: 4px">Notes</h1>
+      <textarea
+        id="notescontent"
+        aria-label="Your notes"
+        placeholder="Type your notes here..."
+      ></textarea>
+      <button id="notesclear" type="button">Clear notes</button>
+    </div>
+
+    <!--Grand Slams-->
+    <div
+      class="window"
+      id="grandslams"
+      style="display: none;"
+    >
+    	<button class="closebutton" id="grandslamsclose"></button>
+      <p
+        class="windowheader"
+        id="grandslamsheader"
+      >
+        Grand Slams
+      </p>
+      <h1 style="margin: 4px">Grand Slams</h1>
+      <p id="grandslamsmessage"></p>
+    </div>
+
+    <!-- Weather App -->
+    <div
+      class="window"
+      id="weather"
+      style="display: none;"
+    >
+      <button class="closebutton" id="weatherclose" aria-label="Close weather"></button>
+      <p class="windowheader" id="weatherheader">Weather</p>
+      <h1 style="margin: 4px">Local Weather</h1>
+      <p id="weatherstatus" role="status">Open the app to check your local weather.</p>
+      <div id="weatherdetails" hidden>
+        <p id="weathercondition"></p>
+        <p id="weathertemperature"></p>
+        <p id="weatherfeelslike"></p>
+        <p id="weatherhumidity"></p>
+        <p id="weatherwind"></p>
+      </div>
+      <button id="weatherrefresh" type="button">Check weather</button>
+    </div>
+
+    <!-- Stopwatch App -->
+    <div
+      class="window"
+      id="stopwatch"
+      style="display: none;"
+    >
+      <button class="closebutton" id="stopwatchclose" aria-label="Close stopwatch"></button>
+      <p class="windowheader" id="stopwatchheader">Stopwatch</p>
+      <h1 style="margin: 4px">Stopwatch</h1>
+      <p id="stopwatchdisplay" role="timer" aria-live="off">00:00:00.00</p>
+      <div class="stopwatch-controls">
+        <button id="stopwatchstart" type="button">Start</button>
+        <button id="stopwatchpause" type="button" disabled>Pause</button>
+        <button id="stopwatchreset" type="button">Reset</button>
+      </div>
+    </div>
+
+    <!-- Top Bar -->
+        <div
+      style="
+        display: flex;
+        backdrop-filter: blur(10px);
+        background-color: rgba(0, 0, 0, 0.25);
+        color: #fff;
+        justify-content: space-between;
+        text-align: center;
+      "
+    > 
+      <p style="margin: 16px">Tennis</p>
+      <p style="margin-left: 16px; cursor: pointer" id="welcomeopen">AlcarazOS</p>
+      <p id="timeElement" style="margin-right: 16px">4:41</p>
+    </div>
+
+    <div id="desktopApps">
+      <div class="desktop-app" id="notesopen">
+        <img src="./notes.png" style="width: 64px; height: 64px; border-radius: 16px;">
+        <p>Notes</p>
+      </div>
+      <div class="desktop-app" id="grandslamsopen">
+        <img src="./grandslams.png" style="width: 64px; height: 64px; border-radius: 16px;">
+        <p>Grand Slams</p>
+      </div>
+      <div class="desktop-app" id="weatheropen" aria-label="Open Weather app">
+        <span class="weather-app-icon" aria-hidden="true">🌤️</span>
+        <p>Weather</p>
+      </div>
+      <div class="desktop-app" id="stopwatchopen" aria-label="Open Stopwatch app">
+        <span class="stopwatch-app-icon" aria-hidden="true">⏱️</span>
+        <p>Stopwatch</p>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
 </html>

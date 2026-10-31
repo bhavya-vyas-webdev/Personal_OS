@@ -1,0 +1,88 @@
+.closebutton {
+  cursor: pointer;
+  border-radius: 16px;
+  background-color: red;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}
+
+.window {
+  border: solid;
+  width: fit-content;
+  border-radius: 16px;
+  padding: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: lightgray;
+  text-align: center;
+}
+
+.windowheader {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: coral;
+  color: black;
+}
+
+#desktopApps {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 50px;
+  padding-left: 16px;
+}
+
+.desktop-app {
+  box-sizing: content-box;
+  width: 96px;
+  padding: 16px;
+  cursor: pointer;
+  filter: drop-shadow(0 0 8px black);
+  text-align: center;
+}
+
+.desktop-app p {
+  margin: 0;
+  color: #fff;
+}
+
+.weather-app-icon {
+  display: block;
+  font-size: 64px;
+  line-height: 64px;
+}
+
+.stopwatch-app-icon {
+  display: block;
+  font-size: 64px;
+  line-height: 64px;
+}
+
+.stopwatch-controls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+#notescontent {
+  box-sizing: border-box;
+  width: min(400px, 70vw);
+  height: 240px;
+  padding: 10px;
+  font: inherit;
+  text-align: left;
+  resize: vertical;
+}
+
+#notesclear {
+  display: block;
+  margin: 8px 0 0 auto;
+  padding: 6px 12px;
+  cursor: pointer;
+}
